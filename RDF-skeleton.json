@@ -1,3 +1,9 @@
+[
+  {
+    "op": "rdf-extension/save-rdf-schema",
+    "description": "Save RDF schema skeleton",
+    "schema": {
+      "baseUri": "http://127.0.0.1:3333/",
       "prefixes": [
         {
           "name": "schema",
@@ -89,4 +95,8 @@
               }
             }
           ]
-
+        }
+      ]
+    }
+  }
+]

@@ -1,3 +1,4 @@
+@base <https://raw.githubusercontent.com/beatestermann/glam-inventory/master/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,72 +14,91 @@
 
     
     
-<webpage> 
-    dc:title "GLAM Inventory vocabulary"@en;
-    dc:description "Vocabulary for Swiss cultural heritage institutions";
+<glam-vocabulary.ttl> a owl:Ontology; 
+    dc:title "GLAM Inventory Vocabulary (OpenGLAM CH)"@en;
+    dc:description "This vocuabulary extends the Foaf, Schema, Dublin Core Terms, and other existing vocabularies by specifying further classes and properties related to the heritage domain that are relevant for the description of the Swiss GLAM Inventory (inventory of heritage institutions) and are not specified elsewhere."@en;
+    owl:versionInfo "0.1 (Draft)";
     dct:issued "";
     dct:modified "";
     dc:creator "Beat Estermann";
     dc:creator "Oskari Romanoff";
-    dc:publisher "";
-    dct:rights ""; 
+    dc:publisher "Open GLAM CH Working Group";
+    dct:rights "Copyright by the authors, available under the Creative Commons Attribution License http://creativecommons.org/licenses/by/4.0". 
     
-#   Classes   
 
-<Collection> a owl:Class;
-    dct:description "collection of the heritage objects held by a heritage institution"
-    skos:prefLabel "collection"@en;
-    skos: definition "every object has unique pcp number so it can be identified"@en;
+#################################################################
+#
+#    Classes
+#
+#################################################################
 
-# Object and datatype properties
-
-  #Institution  
-
-<GLAM-ID> a owl:DatatypeProperty;
-    dct:description "ID of the institution in the dataset";
-	skos:prefLabel "GLAM-ID"@en;
-	rdfs:domain schema:Organization;
-    rdfs:subPropertyOf dct:identifier;
-	skos:definition "Reference to the institutions identification number on the GLAM dataset"@en;
-
- <Institution-type_1> a owl:ObjectProperty;
-    dct:description "Type of the institution";
-	skos:prefLabel "Institution type 1"@en;
-	rdfs:domain <Institution>; 
-	skos:definition "Reference to the type of the institution"@en;
-	
+     
+<HeritageCollection> a owl:Class;
+    dct:description "Collection of heritage objects held by a heritage institution whose mission it is to preserve the collection for future generations.";
+    skos:prefLabel "heritage collection"@en;
+    skos:definition "Collection of heritage objects held by a heritage institution whose mission it is to preserve the collection for future generations."@en.
     
-<Institution-type_2> a owl:ObjectProperty;
-    dct:description "More detailed type of the institution";
-	skos:prefLabel "Institution type 2"@en;
-	rdfs:domain <Institution>;
-	skos:definition "Reference to the more detailed type of the institution";@en
+    
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
 
-<hasNoHeritageCollection> a owl:ObjectProperty;
-    dct:description "The institution is not preserving the collection to future generations";
-	skos:prefLabel "Has no heritage collection"@en;
-	rdfs:domain <Institution>
-	skos:definition "Institution doesnt have heritage collection"@en;
+    
 
-<PCP-No> a owl:DatatypeProperty;
-    dct:description "Identificator for the items in the collection";
-	skos:prefLabel "PCP-No"@en;
-	rdfs:domain <Collection>;
+   
+
+
+
+#################################################################
+#
+#    Datatype Properties
+#
+#################################################################
+
+
+
+
+# Datatype Properties related to schema:Organization
+
+<hasGLAM-ID> a owl:DatatypeProperty;
+    dct:description "Unique identifier for galleries, libraries, archives, museums, and other heritage institutions as used in the context of the OpenGLAM Benchmark Survey.";
+    skos:prefLabel "GLAM identifier"@en;
+    rdfs:domain schema:Organization;
     rdfs:subPropertyOf dct:identifier;
-	skos:definition "Reference to the PCP-No of the item of the collection"@en;
-	
+    skos:definition "Unique identifier for galleries, libraries, archives, museums, and other heritage institutions as used in the context of the OpenGLAM Benchmark Survey."@en.
+
+
+<primaryInstitutionType> a owl:ObjectProperty;
+    dct:description "Primary type of heritage institution (aka: 'museum', 'library', 'archive / records office', 'other'";
+    skos:prefLabel "primary institution type"@en;
+    rdfs:domain schema:Organization; 
+    skos:definition "Primary type of heritage institution (aka: 'museum', 'library', 'archive / records office', 'other'"@en.
+
+    
+<secondaryInstitutionType> a owl:ObjectProperty;
+    dct:description "More detailed type of heritage institution (e.g. 'museum of art', 'museum of science and technology', etc.)";
+    skos:prefLabel "institution type"@en;
+    rdfs:domain schema:Organization;
+    skos:definition "More detailed type of heritage institution (e.g. 'museum of art', 'museum of science and technology', etc.)"@en.
+
+
+
+
+# Datatype Properties related to <HeritageCollection>
+
+<hasPCP-No> a owl:DatatypeProperty;
+    dct:description "PCP reference number. Identifier for cultural properties in Switzerland.";
+    skos:prefLabel "PCP reference number"@en;
+    rdfs:domain <Collection>;
+    rdfs:subPropertyOf dct:identifier;
+    skos:definition "PCP reference number. Identifier for cultural properties in Switzerland."@en.
+
         
-<PCP-Category_A> a owl:ObjectProperty;
-    dct:description "Swiss cultural property of national significance";
-	skos:prefLabel "PCP-Category_A"@en;
-	rdfs:domain <Collection>;
+<hasPCP-Category> a owl:ObjectProperty;
+    dct:description "Category for cultural properties in Switzerland ('A' = 'cultural property of national significance'; 'B' = 'cultural property of regional significance'";
+    skos:prefLabel "PCP category"@en;
+    rdfs:domain <Collection>;
     rdfs:subPropertyOf <PCP-NO>;
-	skos:definition "Reference to which PCP category the item belongs"@en;
-
-        
-<PCP-Category_B> a owl:ObjectProperty;
-    dct:description "Swiss cultural property of regional significance";
-	skos:prefLabel "PDP-Category_B"@en;
-	rdfs:domain <Collection>;
-    rdfs:subPropertyOf <PCP-No>;
-	skos:definition "Reference to which PCP category the item belongs"@en;
+    skos:definition "Category for cultural properties in Switzerland ('A' = 'cultural property of national significance'; 'B' = 'cultural property of regional significance'"@en.

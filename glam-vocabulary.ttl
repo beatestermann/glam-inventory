@@ -62,7 +62,7 @@
 
 # Datatype Properties related to schema:Organization
 
-<hasGLAM-ID> a owl:DatatypeProperty;
+<hasGLAMId> a owl:DatatypeProperty;
     dct:description "Unique identifier for galleries, libraries, archives, museums, and other heritage institutions as used in the context of the OpenGLAM Benchmark Survey.";
     skos:prefLabel "GLAM identifier"@en;
     rdfs:domain schema:Organization;
@@ -88,7 +88,7 @@
 
 # Datatype Properties related to <HeritageCollection>
 
-<hasPCP-No> a owl:DatatypeProperty;
+<hasPCPNumber> a owl:DatatypeProperty;
     dct:description "PCP reference number. Identifier for cultural properties in Switzerland.";
     skos:prefLabel "PCP reference number"@en;
     rdfs:domain <Collection>;
@@ -96,7 +96,7 @@
     skos:definition "PCP reference number. Identifier for cultural properties in Switzerland."@en.
 
         
-<hasPCP-Category> a owl:ObjectProperty;
+<hasPCPCategory> a owl:ObjectProperty;
     dct:description "Category for cultural properties in Switzerland ('A' = 'cultural property of national significance'; 'B' = 'cultural property of regional significance'";
     skos:prefLabel "PCP category"@en;
     rdfs:domain <Collection>;

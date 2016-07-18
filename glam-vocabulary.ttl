@@ -62,7 +62,7 @@
 
 # Datatype Properties related to schema:Organization
 
-<hasGLAMId> a owl:DatatypeProperty;
+<hasGLAMIdentifier> a owl:DatatypeProperty;
     dct:description "Unique identifier for galleries, libraries, archives, museums, and other heritage institutions as used in the context of the OpenGLAM Benchmark Survey.";
     skos:prefLabel "GLAM identifier"@en;
     rdfs:domain schema:Organization;

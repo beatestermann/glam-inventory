@@ -91,7 +91,7 @@
 <hasPCPNumber> a owl:DatatypeProperty;
     dct:description "PCP reference number. Identifier for cultural properties in Switzerland.";
     skos:prefLabel "PCP reference number"@en;
-    rdfs:domain <Collection>;
+    rdfs:domain <HeritageCollection>;
     rdfs:subPropertyOf dct:identifier;
     skos:definition "PCP reference number. Identifier for cultural properties in Switzerland."@en.
 
@@ -99,6 +99,6 @@
 <hasPCPCategory> a owl:ObjectProperty;
     dct:description "Category for cultural properties in Switzerland ('A' = 'cultural property of national significance'; 'B' = 'cultural property of regional significance'";
     skos:prefLabel "PCP category"@en;
-    rdfs:domain <Collection>;
+    rdfs:domain <HeritageCollection>;
     rdfs:subPropertyOf <PCP-NO>;
     skos:definition "Category for cultural properties in Switzerland ('A' = 'cultural property of national significance'; 'B' = 'cultural property of regional significance'"@en.
